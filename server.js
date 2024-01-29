@@ -102,4 +102,4 @@ wsServer.on('connection', (ws, req) => {
   ws.send('connected');
 });
 
-server.listen(port, 'localhost', () => console.log('server run on 7070'));
+server.listen(port, () => console.log('server run on 7070'));
