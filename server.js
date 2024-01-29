@@ -1,10 +1,15 @@
 const http = require('http');
+const serve = require('koa-static');
 const Koa = require('koa');
 const Router = require('koa-router');
 const koaBody = require('koa-body');
 const uuid = require('uuid');
 const app = new Koa();
 const WS = require('ws');
+const path = require("path");
+
+
+app.use(serve(__dirname + '/dist'));
 
 app.use(async (ctx, next) => {
   const origin = ctx.request.get('Origin');
