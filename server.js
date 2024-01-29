@@ -80,9 +80,11 @@ router.post('/message', async (ctx, next) => {
 app.use(router.routes()).use(router.allowedMethods());
 
 const port = process.env.PORT || 7070;
+console.log(app.callback())
 const server = http.createServer(app.callback());
+
 const wsServer = new WS.Server({ server });
-console.log(wsServer)
+
 wsServer.on('connection', (ws, req) => {
   const errCallback = (err) => {
     if(err){
