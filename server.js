@@ -82,7 +82,7 @@ app.use(router.routes()).use(router.allowedMethods());
 const port = process.env.PORT || 7070;
 const server = http.createServer(app.callback());
 const wsServer = new WS.Server({ server });
-
+console.log(wsServer)
 wsServer.on('connection', (ws, req) => {
   const errCallback = (err) => {
     if(err){
@@ -102,4 +102,4 @@ wsServer.on('connection', (ws, req) => {
   ws.send('connected');
 });
 
-server.listen(port, () => console.log('server run on 7070'));
+server.listen(port);
